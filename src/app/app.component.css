@@ -1,0 +1,8 @@
+.find-control {
+  margin-bottom: 10;
+}
+
+kendo-grid {
+  width: 1000;
+  overflow-x: auto;
+}

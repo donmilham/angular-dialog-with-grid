@@ -7,6 +7,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LayoutModule } from '@progress/kendo-angular-layout';
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 
@@ -22,6 +23,9 @@ import { AppComponent } from './app.component';
     InputsModule,
     LayoutModule,
     DropDownsModule,
+
+    FormsModule,
+    ReactiveFormsModule,
   ],
 })
 export class AppModule {}

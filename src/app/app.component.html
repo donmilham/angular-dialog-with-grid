@@ -1,0 +1,43 @@
+<button kendoButton *ngIf="!opened" (click)="open()">Open Lookup</button>
+<kendo-dialog
+  title="{{ name }} - Lookup"
+  *ngIf="opened"
+  (close)="close('cancel')"
+  [minWidth]="250"
+  [width]="1000"
+>
+  <kendo-stacklayout
+    class="find-control"
+    [gap]="15"
+    [orientation]="'horizontal'"
+  >
+    <p>{{ name }}</p>
+    <kendo-dropdownlist [data]="listItems" [(ngModel)]="selectedValue">
+    </kendo-dropdownlist>
+
+    <kendo-textbox></kendo-textbox>
+    <button (click)="findPressed()">Find</button>
+  </kendo-stacklayout>
+
+  <kendo-grid
+    [kendoGridBinding]="gridView"
+    kendoGridSelectBy="Package Code"
+    [pageSize]="4"
+    [pageable]="true"
+    [selectable]="selectableSettings"
+    [(selectedKeys)]="mySelection"
+    [height]="300"
+    [columnMenu]="{ filter: true }"
+  >
+  </kendo-grid>
+  <kendo-dialog-actions>
+    <button
+      kendoButton
+      (click)="close('yes')"
+      themeColor="primary"
+      [disabled]="mySelection.length == 0"
+    >
+      Select
+    </button>
+  </kendo-dialog-actions>
+</kendo-dialog>
